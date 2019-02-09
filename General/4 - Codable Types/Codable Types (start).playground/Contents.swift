@@ -42,24 +42,79 @@ for image in try! [Image](fileName: "images") {
 
 //FileManager.documentDirectoryURL
 
-public struct Sticker: Codable, Equatable {
-    let name: String
-    let birthday: Date?
-    let normalizedPosition: CGPoint
-    let imageName: String
-    var image: UIImage? { return Image.getPNGFromDocumentDirectory(kind: .sticker, name: imageName) }
+
+
+
+let catSticker = Sticker(name: "David Meowie",
+                      birthday: DateComponents(calendar: .current, year: 1978, month: 3, day: 12).date!,
+                      normalizedPosition: CGPoint(x: 0.3, y: 0.3),
+                      imageName: "cat")
+
+let dogSticker = Sticker(name: "Cute Dog",
+                        birthday: DateComponents(calendar: .current, year: 1986, month: 5, day: 27).date!,
+                        normalizedPosition: CGPoint(x: 0.5, y: 0.5),
+                        imageName: "dog")
+
+let frogSticer = Sticker(name: "Power Frog",
+                        birthday: DateComponents(calendar: .current, year: 1996, month: 1, day: 8).date!,
+                        normalizedPosition: CGPoint(x: 1.5, y: 1.5),
+                        imageName: "frog")
+
+// Check the loaded image if you'd like to
+//catSticker.image
+
+
+let stickerList = [catSticker, dogSticker, frogSticer]
+
+
+do {
+    let jsonURL = URL(fileURLWithPath: catSticker.name,
+                      relativeTo: FileManager.documentDirectoryURL.appendingPathComponent(Image.Kind.sticker.rawValue)).appendingPathExtension("json")
+    
+    print("URL = \(jsonURL)")
+    print("URL.path = \(jsonURL.path)")
+    print("URL.lastPathComponent = \(jsonURL.lastPathComponent)")
+    
+    let jsonEncoder = JSONEncoder()
+    jsonEncoder.outputFormatting = .prettyPrinted
+    let jsonData = try jsonEncoder.encode(catSticker)
+    try jsonData.write(to: jsonURL)
+    
+    let jsonDecoder = JSONDecoder()
+    let savedJSONData = try Data(contentsOf: jsonURL)
+    let savedCatSticker = try jsonDecoder.decode(Sticker.self, from: savedJSONData)
+    
+    savedCatSticker == catSticker
+
+    
+} catch {
+    print("Error >> \(error.localizedDescription)")
 }
 
 
-let sticker = Sticker(name: "David Meowie",
-                      birthday: DateComponents(calendar: .current, year: 1978, month: 3, day: 12).date!,
-                      normalizedPosition: CGPoint(x: 0.3, y: 0.3),
-                      imageName: "dog")
+do {
+    let jsonURL = URL(fileURLWithPath: "Animals",
+                      relativeTo: FileManager.documentDirectoryURL.appendingPathComponent(Image.Kind.sticker.rawValue)).appendingPathExtension("json")
+    
+//    print("URL = \(jsonURL)")
+//    print("URL.path = \(jsonURL.path)")
+//    print("URL.lastPathComponent = \(jsonURL.lastPathComponent)")
+//
+    let jsonEncoder = JSONEncoder()
+    jsonEncoder.outputFormatting = .prettyPrinted
+    let jsonData = try jsonEncoder.encode(stickerList)
+    try jsonData.write(to: jsonURL)
 
-sticker.image
+    let jsonDecoder = JSONDecoder()
+    let savedJSONData = try Data(contentsOf: jsonURL)
+    let savedAnimalSticker = try jsonDecoder.decode([Sticker].self, from: savedJSONData)
 
-
-
-
-
-
+    savedAnimalSticker == stickerList
+    
+    // Check the results
+    savedAnimalSticker.map( {$0.image})
+    
+    
+} catch {
+    print("Error >> \(error.localizedDescription)")
+}
