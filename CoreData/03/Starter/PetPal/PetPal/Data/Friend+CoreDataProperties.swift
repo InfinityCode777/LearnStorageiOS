@@ -2,7 +2,7 @@
 //  Friend+CoreDataProperties.swift
 //  PetPal
 //
-//  Created by Jing Wang on 2/3/19.
+//  Created by Jing Wang on 2/10/19.
 //  Copyright © 2019 Razeware. All rights reserved.
 //
 //
@@ -18,5 +18,8 @@ extension Friend {
     }
 
     @NSManaged public var name: String?
-
+    @NSManaged public var address: String?
+    @NSManaged public var dob: NSDate?
+    @NSManaged public var eyecolor: NSObject?
+    @NSManaged public var photo: NSData?
 }
