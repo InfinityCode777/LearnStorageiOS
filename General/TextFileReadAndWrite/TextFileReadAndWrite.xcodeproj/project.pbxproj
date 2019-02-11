@@ -14,6 +14,8 @@
 		2D17FEC5221222E400863C59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D17FEC3221222E400863C59 /* LaunchScreen.storyboard */; };
 		2D17FED0221222E400863C59 /* TextFileReadAndWriteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D17FECF221222E400863C59 /* TextFileReadAndWriteTests.swift */; };
 		2D17FEDB221222E400863C59 /* TextFileReadAndWriteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D17FEDA221222E400863C59 /* TextFileReadAndWriteUITests.swift */; };
+		2D17FEE9221224E400863C59 /* TextSample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D17FEE8221224E400863C59 /* TextSample.txt */; };
+		2D17FEEB2212250200863C59 /* TextSample.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D17FEEA2212250200863C59 /* TextSample.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		2D17FED6221222E400863C59 /* TextFileReadAndWriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TextFileReadAndWriteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D17FEDA221222E400863C59 /* TextFileReadAndWriteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFileReadAndWriteUITests.swift; sourceTree = "<group>"; };
 		2D17FEDC221222E400863C59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D17FEE8221224E400863C59 /* TextSample.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TextSample.txt; sourceTree = "<group>"; };
+		2D17FEEA2212250200863C59 /* TextSample.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = TextSample.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +101,14 @@
 		2D17FEB9221222E300863C59 /* TextFileReadAndWrite */ = {
 			isa = PBXGroup;
 			children = (
+				2D17FEE8221224E400863C59 /* TextSample.txt */,
 				2D17FEBA221222E300863C59 /* AppDelegate.swift */,
 				2D17FEBC221222E300863C59 /* ViewController.swift */,
 				2D17FEBE221222E300863C59 /* Main.storyboard */,
 				2D17FEC1221222E400863C59 /* Assets.xcassets */,
 				2D17FEC3221222E400863C59 /* LaunchScreen.storyboard */,
 				2D17FEC6221222E400863C59 /* Info.plist */,
+				2D17FEEA2212250200863C59 /* TextSample.strings */,
 			);
 			path = TextFileReadAndWrite;
 			sourceTree = "<group>";
@@ -232,6 +238,8 @@
 				2D17FEC5221222E400863C59 /* LaunchScreen.storyboard in Resources */,
 				2D17FEC2221222E400863C59 /* Assets.xcassets in Resources */,
 				2D17FEC0221222E300863C59 /* Main.storyboard in Resources */,
+				2D17FEEB2212250200863C59 /* TextSample.strings in Resources */,
+				2D17FEE9221224E400863C59 /* TextSample.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,7 +371,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -418,7 +426,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -435,6 +443,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RKGM2W93YG;
 				INFOPLIST_FILE = TextFileReadAndWrite/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,6 +462,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RKGM2W93YG;
 				INFOPLIST_FILE = TextFileReadAndWrite/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
