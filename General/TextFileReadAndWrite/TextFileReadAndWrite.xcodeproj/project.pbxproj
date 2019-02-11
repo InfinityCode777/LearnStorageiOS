@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D17FEBB221222E300863C59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D17FEBA221222E300863C59 /* AppDelegate.swift */; };
+		2D17FEBD221222E300863C59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D17FEBC221222E300863C59 /* ViewController.swift */; };
+		2D17FEC0221222E300863C59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D17FEBE221222E300863C59 /* Main.storyboard */; };
+		2D17FEC2221222E400863C59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D17FEC1221222E400863C59 /* Assets.xcassets */; };
+		2D17FEC5221222E400863C59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D17FEC3221222E400863C59 /* LaunchScreen.storyboard */; };
+		2D17FED0221222E400863C59 /* TextFileReadAndWriteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D17FECF221222E400863C59 /* TextFileReadAndWriteTests.swift */; };
+		2D17FEDB221222E400863C59 /* TextFileReadAndWriteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D17FEDA221222E400863C59 /* TextFileReadAndWriteUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2D17FECC221222E400863C59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D17FEAF221222E300863C59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D17FEB6221222E300863C59;
+			remoteInfo = TextFileReadAndWrite;
+		};
+		2D17FED7221222E400863C59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D17FEAF221222E300863C59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D17FEB6221222E300863C59;
+			remoteInfo = TextFileReadAndWrite;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2D17FEB7221222E300863C59 /* TextFileReadAndWrite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextFileReadAndWrite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D17FEBA221222E300863C59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2D17FEBC221222E300863C59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2D17FEBF221222E300863C59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2D17FEC1221222E400863C59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2D17FEC4221222E400863C59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2D17FEC6221222E400863C59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D17FECB221222E400863C59 /* TextFileReadAndWriteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TextFileReadAndWriteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D17FECF221222E400863C59 /* TextFileReadAndWriteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFileReadAndWriteTests.swift; sourceTree = "<group>"; };
+		2D17FED1221222E400863C59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D17FED6221222E400863C59 /* TextFileReadAndWriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TextFileReadAndWriteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D17FEDA221222E400863C59 /* TextFileReadAndWriteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFileReadAndWriteUITests.swift; sourceTree = "<group>"; };
+		2D17FEDC221222E400863C59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2D17FEB4221222E300863C59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D17FEC8221222E400863C59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D17FED3221222E400863C59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D17FEAE221222E300863C59 = {
+			isa = PBXGroup;
+			children = (
+				2D17FEB9221222E300863C59 /* TextFileReadAndWrite */,
+				2D17FECE221222E400863C59 /* TextFileReadAndWriteTests */,
+				2D17FED9221222E400863C59 /* TextFileReadAndWriteUITests */,
+				2D17FEB8221222E300863C59 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2D17FEB8221222E300863C59 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D17FEB7221222E300863C59 /* TextFileReadAndWrite.app */,
+				2D17FECB221222E400863C59 /* TextFileReadAndWriteTests.xctest */,
+				2D17FED6221222E400863C59 /* TextFileReadAndWriteUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2D17FEB9221222E300863C59 /* TextFileReadAndWrite */ = {
+			isa = PBXGroup;
+			children = (
+				2D17FEBA221222E300863C59 /* AppDelegate.swift */,
+				2D17FEBC221222E300863C59 /* ViewController.swift */,
+				2D17FEBE221222E300863C59 /* Main.storyboard */,
+				2D17FEC1221222E400863C59 /* Assets.xcassets */,
+				2D17FEC3221222E400863C59 /* LaunchScreen.storyboard */,
+				2D17FEC6221222E400863C59 /* Info.plist */,
+			);
+			path = TextFileReadAndWrite;
+			sourceTree = "<group>";
+		};
+		2D17FECE221222E400863C59 /* TextFileReadAndWriteTests */ = {
+			isa = PBXGroup;
+			children = (
+				2D17FECF221222E400863C59 /* TextFileReadAndWriteTests.swift */,
+				2D17FED1221222E400863C59 /* Info.plist */,
+			);
+			path = TextFileReadAndWriteTests;
+			sourceTree = "<group>";
+		};
+		2D17FED9221222E400863C59 /* TextFileReadAndWriteUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2D17FEDA221222E400863C59 /* TextFileReadAndWriteUITests.swift */,
+				2D17FEDC221222E400863C59 /* Info.plist */,
+			);
+			path = TextFileReadAndWriteUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2D17FEB6221222E300863C59 /* TextFileReadAndWrite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D17FEDF221222E400863C59 /* Build configuration list for PBXNativeTarget "TextFileReadAndWrite" */;
+			buildPhases = (
+				2D17FEB3221222E300863C59 /* Sources */,
+				2D17FEB4221222E300863C59 /* Frameworks */,
+				2D17FEB5221222E300863C59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TextFileReadAndWrite;
+			productName = TextFileReadAndWrite;
+			productReference = 2D17FEB7221222E300863C59 /* TextFileReadAndWrite.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2D17FECA221222E400863C59 /* TextFileReadAndWriteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D17FEE2221222E400863C59 /* Build configuration list for PBXNativeTarget "TextFileReadAndWriteTests" */;
+			buildPhases = (
+				2D17FEC7221222E400863C59 /* Sources */,
+				2D17FEC8221222E400863C59 /* Frameworks */,
+				2D17FEC9221222E400863C59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2D17FECD221222E400863C59 /* PBXTargetDependency */,
+			);
+			name = TextFileReadAndWriteTests;
+			productName = TextFileReadAndWriteTests;
+			productReference = 2D17FECB221222E400863C59 /* TextFileReadAndWriteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2D17FED5221222E400863C59 /* TextFileReadAndWriteUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D17FEE5221222E400863C59 /* Build configuration list for PBXNativeTarget "TextFileReadAndWriteUITests" */;
+			buildPhases = (
+				2D17FED2221222E400863C59 /* Sources */,
+				2D17FED3221222E400863C59 /* Frameworks */,
+				2D17FED4221222E400863C59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2D17FED8221222E400863C59 /* PBXTargetDependency */,
+			);
+			name = TextFileReadAndWriteUITests;
+			productName = TextFileReadAndWriteUITests;
+			productReference = 2D17FED6221222E400863C59 /* TextFileReadAndWriteUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D17FEAF221222E300863C59 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Jing Wang";
+				TargetAttributes = {
+					2D17FEB6221222E300863C59 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					2D17FECA221222E400863C59 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 2D17FEB6221222E300863C59;
+					};
+					2D17FED5221222E400863C59 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 2D17FEB6221222E300863C59;
+					};
+				};
+			};
+			buildConfigurationList = 2D17FEB2221222E300863C59 /* Build configuration list for PBXProject "TextFileReadAndWrite" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2D17FEAE221222E300863C59;
+			productRefGroup = 2D17FEB8221222E300863C59 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2D17FEB6221222E300863C59 /* TextFileReadAndWrite */,
+				2D17FECA221222E400863C59 /* TextFileReadAndWriteTests */,
+				2D17FED5221222E400863C59 /* TextFileReadAndWriteUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2D17FEB5221222E300863C59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D17FEC5221222E400863C59 /* LaunchScreen.storyboard in Resources */,
+				2D17FEC2221222E400863C59 /* Assets.xcassets in Resources */,
+				2D17FEC0221222E300863C59 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D17FEC9221222E400863C59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D17FED4221222E400863C59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D17FEB3221222E300863C59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D17FEBD221222E300863C59 /* ViewController.swift in Sources */,
+				2D17FEBB221222E300863C59 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D17FEC7221222E400863C59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D17FED0221222E400863C59 /* TextFileReadAndWriteTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D17FED2221222E400863C59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D17FEDB221222E400863C59 /* TextFileReadAndWriteUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2D17FECD221222E400863C59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D17FEB6221222E300863C59 /* TextFileReadAndWrite */;
+			targetProxy = 2D17FECC221222E400863C59 /* PBXContainerItemProxy */;
+		};
+		2D17FED8221222E400863C59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D17FEB6221222E300863C59 /* TextFileReadAndWrite */;
+			targetProxy = 2D17FED7221222E400863C59 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2D17FEBE221222E300863C59 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D17FEBF221222E300863C59 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2D17FEC3221222E400863C59 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D17FEC4221222E400863C59 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2D17FEDD221222E400863C59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2D17FEDE221222E400863C59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2D17FEE0221222E400863C59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RKGM2W93YG;
+				INFOPLIST_FILE = TextFileReadAndWrite/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jing.TextFileReadAndWrite;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2D17FEE1221222E400863C59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RKGM2W93YG;
+				INFOPLIST_FILE = TextFileReadAndWrite/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jing.TextFileReadAndWrite;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2D17FEE3221222E400863C59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RKGM2W93YG;
+				INFOPLIST_FILE = TextFileReadAndWriteTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jing.TextFileReadAndWriteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TextFileReadAndWrite.app/TextFileReadAndWrite";
+			};
+			name = Debug;
+		};
+		2D17FEE4221222E400863C59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RKGM2W93YG;
+				INFOPLIST_FILE = TextFileReadAndWriteTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jing.TextFileReadAndWriteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TextFileReadAndWrite.app/TextFileReadAndWrite";
+			};
+			name = Release;
+		};
+		2D17FEE6221222E400863C59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RKGM2W93YG;
+				INFOPLIST_FILE = TextFileReadAndWriteUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jing.TextFileReadAndWriteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TextFileReadAndWrite;
+			};
+			name = Debug;
+		};
+		2D17FEE7221222E400863C59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RKGM2W93YG;
+				INFOPLIST_FILE = TextFileReadAndWriteUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jing.TextFileReadAndWriteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TextFileReadAndWrite;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D17FEB2221222E300863C59 /* Build configuration list for PBXProject "TextFileReadAndWrite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D17FEDD221222E400863C59 /* Debug */,
+				2D17FEDE221222E400863C59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D17FEDF221222E400863C59 /* Build configuration list for PBXNativeTarget "TextFileReadAndWrite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D17FEE0221222E400863C59 /* Debug */,
+				2D17FEE1221222E400863C59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D17FEE2221222E400863C59 /* Build configuration list for PBXNativeTarget "TextFileReadAndWriteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D17FEE3221222E400863C59 /* Debug */,
+				2D17FEE4221222E400863C59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D17FEE5221222E400863C59 /* Build configuration list for PBXNativeTarget "TextFileReadAndWriteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D17FEE6221222E400863C59 /* Debug */,
+				2D17FEE7221222E400863C59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2D17FEAF221222E300863C59 /* Project object */;
+}
