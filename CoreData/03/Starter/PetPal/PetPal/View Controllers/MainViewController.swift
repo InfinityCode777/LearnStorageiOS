@@ -52,9 +52,6 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //        if let friends = loadUnfilteredData(with: nil) {
-        //            self.friends = friends
-        //        }
         loadData(with: nil)
         showEditButton()
     }
@@ -69,7 +66,6 @@ class MainViewController: UIViewController {
         if segue.identifier == "petSegue" {
             if let index = sender as? IndexPath {
                 let pvc = segue.destination as! PetsViewController
-                //                let friend = friends[index.row]
                 let friend = fetchedRC.object(at: index)
                 if let name = friend.name {
                     if let pets = friendPets[name] {
@@ -97,16 +93,9 @@ class MainViewController: UIViewController {
         friendEntry.eyecolor = friendData.eyeColor
         
         appDelegate?.saveContext()
-        //        friends.append(friendEntry)
         
-        //        guard let friends = loadData(with: nil) else { return }
-        //        self.friends = friends
         loadData(with: nil)
         collectionView.reloadData()
-        
-        //        let index = IndexPath(row: friends.count - 1, section: 0)
-        //        collectionView.insertItems(at: [index])
-        
         
     }
     
@@ -127,15 +116,12 @@ class MainViewController: UIViewController {
 // Collection View Delegates
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //        let count = isFiltered ? filtered.count : friends.count
         let count = fetchedRC.fetchedObjects?.count ?? 0
         return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendCell", for: indexPath) as! FriendCell
-        //        let friend = isFiltered ? filtered[indexPath.row] : friends[indexPath.row]
-        //        let friend = friends[indexPath.row]
         let friend = fetchedRC.object(at: indexPath)
         var profilePhoto: UIImage? = UIImage(named: "person-placeholder")
         
@@ -223,11 +209,9 @@ extension MainViewController:UISearchBarDelegate {
         collectionView.reloadData()
     }
     
-    //    private func loadUnfilteredData(with query: String?) -> [Friend]? {
     private func loadData(with query: String?) {
         
         // Check that there is a valid context
-        //        guard let fetchContext = self.context else { return nil }
         guard let fetchContext = self.context else { return }
         
         let fetchRequest = Friend.fetchRequest() as NSFetchRequest<Friend>
@@ -250,8 +234,6 @@ extension MainViewController:UISearchBarDelegate {
             print("Error, could not fetch data! >> \(error) ")
         }
         
-        //        return fetchedRC.fetchedObjects
-        
     }
 }
 
@@ -266,7 +248,6 @@ extension MainViewController: UIImagePickerControllerDelegate, UINavigationContr
             return
         }
         
-        //        let friend = isFiltered ? filtered[selected.row] : friends[selected.row]
         let friend = fetchedRC.object(at: selected)
         friend.photo = image.pngData() as NSData?
         
