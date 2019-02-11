@@ -46,7 +46,6 @@ class MainViewController: UIViewController {
     private var friendPets = [String:[String]]()
     private var selected:IndexPath!
     private var picker = UIImagePickerController()
-    //    private var images = [String:UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,12 +53,9 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        do {
-            friends = try context?.fetch(Friend.fetchRequest()) ?? [Friend]()
-        } catch let error as NSError {
-            fatalError("Error, could not fetch data! >> \(error) ")
+        if let friends = loadUnfilteredData(with: nil) {
+            self.friends = friends
         }
-        
         showEditButton()
     }
     
@@ -88,13 +84,10 @@ class MainViewController: UIViewController {
     
     // MARK:- Actions
     @IBAction func addFriend() {
-        //        var friend = FriendData()
-        //        while friends.contains(friend.name) {
-        //            friend = FriendData()
-        //        }
-        //        friends.append(friend.name)
-        //        let index = IndexPath(row:friends.count - 1, section:0)
-        //        collectionView?.insertItems(at: [index])
+        
+        
+        
+        
         let friendData = FriendData()
         let friendEntry = Friend(entity: Friend.entity(), insertInto: context)
         friendEntry.name = friendData.name
@@ -104,8 +97,15 @@ class MainViewController: UIViewController {
         
         appDelegate?.saveContext()
         friends.append(friendEntry)
-        let index = IndexPath(row: friends.count - 1, section: 0)
-        collectionView.insertItems(at: [index])
+        
+        guard let friends = loadUnfilteredData(with: nil) else { return }
+        self.friends = friends 
+        collectionView.reloadData()
+        
+        //        let index = IndexPath(row: friends.count - 1, section: 0)
+        //        collectionView.insertItems(at: [index])
+        
+        
     }
     
     // MARK:- Private Methods
@@ -119,13 +119,15 @@ class MainViewController: UIViewController {
 // Collection View Delegates
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let count = isFiltered ? filtered.count : friends.count
+        //        let count = isFiltered ? filtered.count : friends.count
+        let count = friends.count
         return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendCell", for: indexPath) as! FriendCell
-        let friend = isFiltered ? filtered[indexPath.row] : friends[indexPath.row]
+        //        let friend = isFiltered ? filtered[indexPath.row] : friends[indexPath.row]
+        let friend = friends[indexPath.row]
         var profilePhoto: UIImage? = UIImage(named: "person-placeholder")
         
         if let name = friend.name {
@@ -162,21 +164,75 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 // Search Bar Delegate
 extension MainViewController:UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let query = searchBar.text else {
+        // Search bar resigns its first responder status
+        searchBar.resignFirstResponder()
+        
+        // Return if search content is nil or empty
+        guard let queryText = searchBar.text else {
+            print("Early return, search result is nil!")
             return
         }
+        
+        if queryText.isEmpty {
+            print("Early return, search result is empty!")
+            return
+        }
+        
+        // Set flag to indicate that current results are filtered results
         isFiltered = true
-        filtered = friends.filter({$0.name?.lowercased().contains(query) == true })
-        searchBar.resignFirstResponder()
+        
+        // Load filtered results with query content
+        guard let friends = loadUnfilteredData(with: queryText) else {
+            return
+        }
+        self.friends = friends
+        
+        // Refresh collection view
         collectionView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        isFiltered = false
-        filtered.removeAll()
-        searchBar.text = nil
+        
+        // Search bar resigns its first responder status
         searchBar.resignFirstResponder()
+        
+        // Clear flag to indicate that current results are un-filtered results
+        isFiltered = false
+        
+        // Load un-filtered results with nil query content
+        if let friends = loadUnfilteredData(with: nil) {
+            self.friends = friends
+        }
+        
+        // Clear search bar content
+        searchBar.text = nil
+        
+        // Refresh collection view
         collectionView.reloadData()
+    }
+    
+    private func loadUnfilteredData(with query: String?) -> [Friend]? {
+        
+        let fetchRequest = Friend.fetchRequest() as NSFetchRequest<Friend>
+        
+        if let queryText = query {
+            fetchRequest.predicate = NSPredicate(format: "name CONTAINS[cd] %@", queryText)
+        }
+        //        let sortDescriptorList = [NSSortDescriptor(key: #keyPath(Friend.name), ascending: false)]
+        //                let sortDescriptorList = [NSSortDescriptor(key: #keyPath(Friend.dob), ascending: true)]
+        //        let sortDescriptorList = [NSSortDescriptor(key: #keyPath(Friend.name), ascending: true, comparator: )]
+        let sortDescriptorList = [NSSortDescriptor(key: #keyPath(Friend.name), ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))]
+        fetchRequest.sortDescriptors = sortDescriptorList
+        
+        do {
+            let friends = try context?.fetch(fetchRequest)
+            return friends
+        } catch let error as NSError {
+            print("Error, could not fetch data! >> \(error) ")
+            return nil
+        }
+        
+        //        return nil
     }
 }
 
@@ -192,11 +248,7 @@ extension MainViewController: UIImagePickerControllerDelegate, UINavigationContr
         }
         
         let friend = isFiltered ? filtered[selected.row] : friends[selected.row]
-        //        if let name = friend.name {
-        //        images[name] = image
-        
         friend.photo = image.pngData() as NSData?
-        //        }
         
         appDelegate?.saveContext()
         collectionView?.reloadItems(at: [selected])
