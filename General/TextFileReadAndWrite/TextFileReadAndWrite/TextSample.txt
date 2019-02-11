@@ -1,1 +1,6 @@
 "someKey" = "someValue";
+// For info page
+"otherActivity" = "Other Activity";
+"otherTrainee"= "Other Trainee";
+"doneText" = "Done";
+"continueNext" = "Continue";

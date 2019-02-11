@@ -102,13 +102,13 @@
 			isa = PBXGroup;
 			children = (
 				2D17FEE8221224E400863C59 /* TextSample.txt */,
+				2D17FEEA2212250200863C59 /* TextSample.strings */,
 				2D17FEBA221222E300863C59 /* AppDelegate.swift */,
 				2D17FEBC221222E300863C59 /* ViewController.swift */,
 				2D17FEBE221222E300863C59 /* Main.storyboard */,
 				2D17FEC1221222E400863C59 /* Assets.xcassets */,
 				2D17FEC3221222E400863C59 /* LaunchScreen.storyboard */,
 				2D17FEC6221222E400863C59 /* Info.plist */,
-				2D17FEEA2212250200863C59 /* TextSample.strings */,
 			);
 			path = TextFileReadAndWrite;
 			sourceTree = "<group>";
