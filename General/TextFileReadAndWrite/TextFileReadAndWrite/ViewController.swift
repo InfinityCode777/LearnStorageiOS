@@ -11,17 +11,18 @@ import UIKit
 class ViewController: UIViewController {
     
     var savedString: String = ""
+    var localDict = [String: String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Path = \(FileManager.documentDirectoryURL.path)")
+//        print("Path = \(FileManager.documentDirectoryURL.path)")
         print("Main bundle = \(Bundle.main.bundlePath)")
         
         let bundleURL = Bundle.main.bundleURL
         let resourceURL = Bundle.main.resourceURL
         
-        print("mainBundleURL = \(bundleURL)")
-        print("resourceURL = \(resourceURL)")
+//        print("mainBundleURL = \(bundleURL)")
+//        print("resourceURL = \(resourceURL)")
         
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -32,6 +33,35 @@ class ViewController: UIViewController {
             }
         } catch {
             print("Error reading file! >> \(error)")
+        }
+        
+        
+        
+        if let fileName = Bundle.main.url(forResource: "TextSample", withExtension: "strings") {
+            if let textNSDict = NSDictionary(contentsOf: fileName) {
+                if let textDict = textNSDict as? [String: String] {
+//                    print("textDict[\"doneText\"] = \(textDict["doneText"]))")
+                    localDict = textDict
+                }
+//                print("textNSDict[\"otherActivity\"] = \(textNSDict.object(forKey: "otherActivity"))")
+            }
+        }
+        
+        var outputText: String?
+        
+        for f8LocalKey in F8LocaleStrings.allCases {
+//            outputText = ""
+            outputText = nil
+            for localItem in localDict {
+                if localItem.key == f8LocalKey.rawValue {
+                    outputText = "Found match for key #\(f8LocalKey)# "
+                    if !localItem.value.isEmpty {
+                        outputText?.append("with value @\(f8LocalKey.rawValue)@")
+                        break
+                    }
+                }
+            }
+            print(outputText == nil ? "Not found match for key #\(f8LocalKey.rawValue)#": outputText!)
         }
         
         
@@ -46,8 +76,6 @@ class ViewController: UIViewController {
         }
         
         let savedString = try String(contentsOf: fileURL, encoding: .utf8)
-        //        let savedString = try String(contentsOfFile: fileURL.path, encoding: .utf8)
-        //        let savedString = try String(contentsOfFile: fileURL.path, encoding: String.Encoding.init(rawValue: 4))
         return savedString
     }
     
