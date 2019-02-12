@@ -1,0 +1,39 @@
+/*
+ Localizable.strings
+ loggerApp
+ 
+ Created by Jing Wang on 1/22/19.
+ Copyright © 2019 figur8. All rights reserved.
+ */
+
+// 信息页面
+"otherActivity" = "Other Activity";
+"otherTrainee"= "Other Trainee";
+"doneText" = "完成";
+"continueNext" = "继续";
+
+// Strings for F8RecorderVC.swift
+"testNamePlaceholder" = "P###_SXXXXX_AXXXXX_T#";
+"notesNamePlaceholder" = "添加笔记 ...";
+"noDeviceConnected" = "无连接设备！";
+"trialsText" = "试验";
+"startCollectingData" = "收集数据起始时间: %@)";
+"magDeclinationNote" = "磁偏角: %@";
+"plotLengendNotApply" = "无效";
+"plotLengendNotAssign" = "未分配";
+"alertSavedError" = " 保存错误!";
+"alertOK" = "好";
+"alertSavedOk" = "已保存!";
+"alertPhotoSavedToAlbum" = "屏幕截图已保存至相册.";
+"alertSave" = "保存";
+"alertInputMagIncl" = "请输入磁偏角 (空白=0.0)";
+"alertInputHeading"  = "请输入朝向 (空白=0.0)";
+"alertCollectAngle" = "在%@方向收集10秒钟欧拉角信息...";
+"figur8" = "figur8";
+"alertDelete" = "删除";
+"inputNameAlertTitle" = "请输入试验名称及备注（可选）";
+
+// F8Device or similar
+// Need to test this one
+"photoAudioNotAuthorized"  = "照片，视频或者音频因未被授权使用!\n\n在设置>%@处解决该问题";
+"deviceDisconnected" = "传感器连接中断";
