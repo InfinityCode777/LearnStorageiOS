@@ -18,7 +18,7 @@ class TextFileReadAndWriteTests: XCTestCase {
     var fileManager = FileManager.default
     var bundleContentURLs = [URL]()
     var supportedLangNameList = [String]()
-    var supportedLangURLs = [URL]()
+    var supportedLangURLList = [URL]()
     
     override func setUp() {
         // Refer to the following two links for iso language code
@@ -33,7 +33,7 @@ class TextFileReadAndWriteTests: XCTestCase {
         }
         
         // Get URLs of all language package under main bundle i.e. [APP_NAME].APP/
-        supportedLangURLs = bundleContentURLs.filter( {$0.lastPathComponent.contains(".lproj") && !$0.lastPathComponent.contains("Base")} )
+        supportedLangURLList = bundleContentURLs.filter( {$0.lastPathComponent.contains(".lproj") && !$0.lastPathComponent.contains("Base")} )
         // Get names of all components under main bundle i.e. [APP_NAME].APP/
         let bundleContentList = bundleContentURLs.map( {$0.lastPathComponent})
         // Search for names of all language packages, which ends with ".lproj". Also remove name for base language package
@@ -67,7 +67,18 @@ class TextFileReadAndWriteTests: XCTestCase {
     
     func testLocaleKeyValuePair() {
         
-        for localeKey in F8LocaleStrings.allCases {
+        for supportedLangURL in supportedLangURLList {
+            
+            if let supportedLangBundle = Bundle(url: supportedLangURL) {
+                
+                
+                for localeKey in F8LocaleStrings.allCases {
+                    let isContainedAsterisk = localeKey.rawValue.localized(bundle: supportedLangBundle).contains("**")
+                    XCTAssertFalse(isContainedAsterisk, "Could not find localized string for key #\(localeKey.rawValue)# under language #\(supportedLangURL.lastPathComponent.replacingOccurrences(of: ".lproj", with: ""))#")
+                }
+            } else {
+                XCTFail("Could not convert supported language URL to bundle!")
+            }
             
         }
     }

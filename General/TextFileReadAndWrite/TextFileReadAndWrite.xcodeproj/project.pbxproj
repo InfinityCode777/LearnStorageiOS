@@ -14,8 +14,8 @@
 		2D17FEC5221222E400863C59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D17FEC3221222E400863C59 /* LaunchScreen.storyboard */; };
 		2D17FED0221222E400863C59 /* TextFileReadAndWriteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D17FECF221222E400863C59 /* TextFileReadAndWriteTests.swift */; };
 		2D17FEDB221222E400863C59 /* TextFileReadAndWriteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D17FEDA221222E400863C59 /* TextFileReadAndWriteUITests.swift */; };
-		2D17FEE9221224E400863C59 /* TextSample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D17FEE8221224E400863C59 /* TextSample.txt */; };
 		2D255E4D22132C5700DD1E2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D255E4F22132C5700DD1E2E /* Localizable.strings */; };
+		2D255E5222136B1E00DD1E2E /* TextSample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2D255E5122136B1E00DD1E2E /* TextSample.txt */; };
 		2DB77B3B221232C60008475E /* F8LocaleStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB77B3A221232C60008475E /* F8LocaleStrings.swift */; };
 		2DB77B3D221232F40008475E /* ExtLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB77B3C221232F40008475E /* ExtLocalizable.swift */; };
 /* End PBXBuildFile section */
@@ -51,11 +51,11 @@
 		2D17FED6221222E400863C59 /* TextFileReadAndWriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TextFileReadAndWriteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D17FEDA221222E400863C59 /* TextFileReadAndWriteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFileReadAndWriteUITests.swift; sourceTree = "<group>"; };
 		2D17FEDC221222E400863C59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2D17FEE8221224E400863C59 /* TextSample.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TextSample.txt; sourceTree = "<group>"; };
 		2D255E4B22132C4100DD1E2E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		2D255E4C22132C4100DD1E2E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		2D255E4E22132C5700DD1E2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2D255E5022132C5900DD1E2E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2D255E5122136B1E00DD1E2E /* TextSample.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TextSample.txt; sourceTree = "<group>"; };
 		2DB77B3A221232C60008475E /* F8LocaleStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F8LocaleStrings.swift; sourceTree = "<group>"; };
 		2DB77B3C221232F40008475E /* ExtLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtLocalizable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,7 +108,7 @@
 		2D17FEB9221222E300863C59 /* TextFileReadAndWrite */ = {
 			isa = PBXGroup;
 			children = (
-				2D17FEE8221224E400863C59 /* TextSample.txt */,
+				2D255E5122136B1E00DD1E2E /* TextSample.txt */,
 				2D17FEBA221222E300863C59 /* AppDelegate.swift */,
 				2D17FEBC221222E300863C59 /* ViewController.swift */,
 				2D17FEBE221222E300863C59 /* Main.storyboard */,
@@ -247,9 +247,9 @@
 			files = (
 				2D17FEC5221222E400863C59 /* LaunchScreen.storyboard in Resources */,
 				2D17FEC2221222E400863C59 /* Assets.xcassets in Resources */,
+				2D255E5222136B1E00DD1E2E /* TextSample.txt in Resources */,
 				2D17FEC0221222E300863C59 /* Main.storyboard in Resources */,
 				2D255E4D22132C5700DD1E2E /* Localizable.strings in Resources */,
-				2D17FEE9221224E400863C59 /* TextSample.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

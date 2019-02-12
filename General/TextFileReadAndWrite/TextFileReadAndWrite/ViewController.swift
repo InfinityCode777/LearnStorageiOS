@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         
         continueBtn.setTitle(F8LocaleStrings.continueNext.localized, for: .normal)
         
-        print("Supported languages >> \(Locale.preferredLanguages)")
+        print("System preferred languages >> \(Locale.preferredLanguages)")
         
         //        print("Path = \(FileManager.documentDirectoryURL.path)")
         print("Main bundle = \(Bundle.main.bundlePath)")
@@ -44,10 +44,40 @@ class ViewController: UIViewController {
         
         print("Bundle Contents >> \(bundleContents)")
         
-        var supportedLanguageList = bundleContents.filter( {$0.contains(".lproj") && !$0.contains("Base")})
-        supportedLanguageList = supportedLanguageList.map( {$0.replacingOccurrences(of: ".lproj", with: "")} )
+        var supportedLanguageNameList = bundleContents.filter( {$0.contains(".lproj") && !$0.contains("Base")})
+        supportedLanguageNameList = supportedLanguageNameList.map( {$0.replacingOccurrences(of: ".lproj", with: "")} )
 
-        print("Supported Languages >> \(supportedLanguageList)")
+        print("Supported Languages >> \(supportedLanguageNameList)")
+        
+
+        // Get URLs of all language package under main bundle i.e. [APP_NAME].APP/
+        var supportedLangURLList = localeFileURLList.filter( {$0.lastPathComponent.contains(".lproj") && !$0.lastPathComponent.contains("Base")} )
+
+        
+//        var langContentURLList = [URL]()
+//
+//        do {
+//            langContentURLList = try fileManager.contentsOfDirectory(at: supportedLangURLList[0], includingPropertiesForKeys: nil, options: [])
+//        } catch {
+//            print("Error in fetch localization files under path \(Bundle.main.bundlePath)")
+//        }
+
+        
+        
+//        for supportedLangURL in supportedLangURLList {
+        
+            if let supportedLangBundle = Bundle(url: supportedLangURLList[1]) {
+                
+                
+                for localeKey in F8LocaleStrings.allCases {
+                    print("\"\(localeKey.rawValue)\" = \"\(localeKey.rawValue.localized(bundle: supportedLangBundle))\"")
+                }
+            } else {
+                print("Could not convert supported language URL to bundle!")
+            }
+            
+//        }
+        
         
         
         
