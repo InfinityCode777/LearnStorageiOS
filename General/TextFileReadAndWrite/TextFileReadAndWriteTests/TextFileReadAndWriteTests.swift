@@ -12,6 +12,7 @@ import XCTest
 
 class TextFileReadAndWriteTests: XCTestCase {
     
+    // Be very careful to change the following two list for supported/unsupported language
     let expectedSupportedLangNameList: [String] = ["en", "zh-Hans"]
     let testUnsupportedLangNameList: [String] = ["zh-Hant", "es", "ru"]
     
@@ -19,7 +20,6 @@ class TextFileReadAndWriteTests: XCTestCase {
     var bundleContentURLs = [URL]()
     var supportedLangNameList = [String]()
     var supportedLangURLList = [URL]()
-//    var supportedLangBundleList = [Bundle]()
     
     override func setUp() {
         // Refer to the following two links for iso language code
@@ -68,20 +68,20 @@ class TextFileReadAndWriteTests: XCTestCase {
     
     func testLocaleKeyValuePair() {
         
-//        // Method #1
-//        for supportedLangURL in supportedLangURLList {
-//            
-//            if let supportedLangBundle = Bundle(url: supportedLangURL) {
-//                
-//                
-//                for localeKey in F8LocaleStrings.allCases {
-//                    let isContainedAsterisk = localeKey.rawValue.localized(bundle: supportedLangBundle).contains("**")
-//                    XCTAssertFalse(isContainedAsterisk, "Could not find localized string for key #\(localeKey.rawValue)# under language #\(supportedLangURL.lastPathComponent.replacingOccurrences(of: ".lproj", with: ""))#")
-//                }
-//            } else {
-//                XCTFail("Could not convert supported language URL to bundle!")
-//            }
-//        }
+        //        // Method #1
+        //        for supportedLangURL in supportedLangURLList {
+        //
+        //            if let supportedLangBundle = Bundle(url: supportedLangURL) {
+        //
+        //
+        //                for localeKey in F8LocaleStrings.allCases {
+        //                    let isContainedAsterisk = localeKey.rawValue.localized(bundle: supportedLangBundle).contains("**")
+        //                    XCTAssertFalse(isContainedAsterisk, "Could not find localized string for key #\(localeKey.rawValue)# under language #\(supportedLangURL.lastPathComponent.replacingOccurrences(of: ".lproj", with: ""))#")
+        //                }
+        //            } else {
+        //                XCTFail("Could not convert supported language URL to bundle!")
+        //            }
+        //        }
         
         // Method #2
         for supportedLangName in supportedLangNameList {
@@ -92,14 +92,14 @@ class TextFileReadAndWriteTests: XCTestCase {
                     
                     
                     for localeKey in F8LocaleStrings.allCases {
-                        let isContainedAsterisk = localeKey.rawValue.localized(bundle: supportedLangBundle).contains("**")
+                        let isContainedAsterisk = localeKey.rawValue.localized(bundle: supportedLangBundle).contains("*")
                         XCTAssertFalse(isContainedAsterisk, "Could not find localized string for key #\(localeKey.rawValue)# under language #\(supportedLangURL.lastPathComponent.replacingOccurrences(of: ".lproj", with: ""))#")
                     }
                 } else {
-                    XCTFail("Could not convert supported language URL to bundle!")
+                    XCTFail("Could not convert URL to bundle for language \(supportedLangName)!")
                 }
             } else {
-                XCTFail("Could not URL for language \(supportedLangName)!")
+                XCTFail("Could not find URL for language \(supportedLangName)!")
                 
             }
         }
