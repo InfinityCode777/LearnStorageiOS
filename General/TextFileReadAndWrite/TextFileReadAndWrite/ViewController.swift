@@ -22,47 +22,40 @@ class ViewController: UIViewController {
         
         continueBtn.setTitle(F8LocaleStrings.continueNext.localized, for: .normal)
         
-        print("System preferred languages >> \(Locale.preferredLanguages)")
-        
-        //        print("Path = \(FileManager.documentDirectoryURL.path)")
-        print("Main bundle = \(Bundle.main.bundlePath)")
-        
         let bundleURL = Bundle.main.bundleURL
-        let resourceURL = Bundle.main.resourceURL
-        
+        //        let resourceURL = Bundle.main.resourceURL
+
+        //        print("System preferred languages >> \(Locale.preferredLanguages)")
+        //
+        //        print("Path = \(FileManager.documentDirectoryURL.path)")
+        //        print("Main bundle = \(Bundle.main.bundlePath)")
+        //
+        //
         //        print("mainBundleURL = \(bundleURL)")
         //        print("resourceURL = \(resourceURL)")
-        var localeFileURLList = [URL]()
+        
+        
+        var bundleContentURLList = [URL]()
         
         do {
-            localeFileURLList = try fileManager.contentsOfDirectory(at: Bundle.main.bundleURL, includingPropertiesForKeys: nil, options: [])
+            bundleContentURLList = try fileManager.contentsOfDirectory(at: Bundle.main.bundleURL, includingPropertiesForKeys: nil, options: [])
         } catch {
             print("Error in fetch localization files under path \(Bundle.main.bundlePath)")
         }
         
-        let bundleContents = localeFileURLList.map( {$0.lastPathComponent})
+        let bundleContents = bundleContentURLList.map( {$0.lastPathComponent})
         
-        print("Bundle Contents >> \(bundleContents)")
+        //        print("Bundle Contents >> \(bundleContents)")
         
         var supportedLanguageNameList = bundleContents.filter( {$0.contains(".lproj") && !$0.contains("Base")})
         supportedLanguageNameList = supportedLanguageNameList.map( {$0.replacingOccurrences(of: ".lproj", with: "")} )
 
-        print("Supported Languages >> \(supportedLanguageNameList)")
+        //        print("Supported Languages >> \(supportedLanguageNameList)")
         
 
         // Get URLs of all language package under main bundle i.e. [APP_NAME].APP/
-        var supportedLangURLList = localeFileURLList.filter( {$0.lastPathComponent.contains(".lproj") && !$0.lastPathComponent.contains("Base")} )
+        var supportedLangURLList = bundleContentURLList.filter( {$0.lastPathComponent.contains(".lproj") && !$0.lastPathComponent.contains("Base")} )
 
-        
-//        var langContentURLList = [URL]()
-//
-//        do {
-//            langContentURLList = try fileManager.contentsOfDirectory(at: supportedLangURLList[0], includingPropertiesForKeys: nil, options: [])
-//        } catch {
-//            print("Error in fetch localization files under path \(Bundle.main.bundlePath)")
-//        }
-
-        
         
 //        for supportedLangURL in supportedLangURLList {
         
