@@ -17,9 +17,8 @@ class TextFileReadAndWriteTests: XCTestCase {
     let testUnsupportedLangNameList: [String] = ["zh-Hant", "es", "ru"]
     
     var fileManager = FileManager.default
-    var bundleContentURLs = [URL]()
-    var supportedLangNameList = [String]()
-    var supportedLangURLList = [URL]()
+    var bundleContentURLList = [URL]()
+    var fetchedSupportedLangNameList = [String]()
     
     override func setUp() {
         // Refer to the following two links for iso language code
@@ -28,19 +27,17 @@ class TextFileReadAndWriteTests: XCTestCase {
         
         
         do {
-            bundleContentURLs = try fileManager.contentsOfDirectory(at: Bundle.main.bundleURL, includingPropertiesForKeys: nil, options: [])
+            bundleContentURLList = try fileManager.contentsOfDirectory(at: Bundle.main.bundleURL, includingPropertiesForKeys: nil, options: [])
         } catch {
             print("Error in fetch localization files under path \(Bundle.main.bundlePath)")
         }
         
-        // Get URLs of all language package under main bundle i.e. [APP_NAME].APP/
-        supportedLangURLList = bundleContentURLs.filter( {$0.lastPathComponent.contains(".lproj") && !$0.lastPathComponent.contains("Base")} )
         // Get names of all components under main bundle i.e. [APP_NAME].APP/
-        let bundleContentList = bundleContentURLs.map( {$0.lastPathComponent})
+        let bundleContentList = bundleContentURLList.map( {$0.lastPathComponent})
         // Search for names of all language packages, which ends with ".lproj". Also remove name for base language package
-        supportedLangNameList = bundleContentList.filter( {$0.contains(".lproj") && !$0.contains("Base")} )
+        fetchedSupportedLangNameList = bundleContentList.filter( {$0.contains(".lproj") && !$0.contains("Base")} )
         // Remove ".lproj" extension
-        supportedLangNameList = supportedLangNameList.map( {$0.replacingOccurrences(of: ".lproj", with: "")} )
+        fetchedSupportedLangNameList = fetchedSupportedLangNameList.map( {$0.replacingOccurrences(of: ".lproj", with: "")} )
     }
     
     override func tearDown() {
@@ -50,7 +47,7 @@ class TextFileReadAndWriteTests: XCTestCase {
     func testSupportedLanguages() {
         // This is a test to veify whether the [LANUAGE_CODE].strings file for supported language [LANUAGE_CODE] should exist, test fails the corresponding file is not found
         
-        for supportedLang in supportedLangNameList {
+        for supportedLang in fetchedSupportedLangNameList {
             XCTAssertTrue(expectedSupportedLangNameList.contains(supportedLang), "Could not find localization file for supported language \(supportedLang)!")
         }
     }
@@ -60,46 +57,28 @@ class TextFileReadAndWriteTests: XCTestCase {
         // This is a test to veify whether the [LANUAGE_CODE].strings file for unsupported language [LANUAGE_CODE] should not exist, test fails the corresponding file is found
         
         for unsupportedLang in testUnsupportedLangNameList {
-            
-            XCTAssertFalse(supportedLangNameList.contains(unsupportedLang), "Do not support language \(unsupportedLang)!")
+            XCTAssertFalse(fetchedSupportedLangNameList.contains(unsupportedLang), "Do not support language \(unsupportedLang)!")
         }
     }
     
     
     func testLocaleKeyValuePair() {
         
-        //        // Method #1
-        //        for supportedLangURL in supportedLangURLList {
-        //
-        //            if let supportedLangBundle = Bundle(url: supportedLangURL) {
-        //
-        //
-        //                for localeKey in F8LocaleStrings.allCases {
-        //                    let isContainedAsterisk = localeKey.rawValue.localized(bundle: supportedLangBundle).contains("**")
-        //                    XCTAssertFalse(isContainedAsterisk, "Could not find localized string for key #\(localeKey.rawValue)# under language #\(supportedLangURL.lastPathComponent.replacingOccurrences(of: ".lproj", with: ""))#")
-        //                }
-        //            } else {
-        //                XCTFail("Could not convert supported language URL to bundle!")
-        //            }
-        //        }
-        
-        // Method #2
-        for supportedLangName in supportedLangNameList {
-            
+        for supportedLangName in fetchedSupportedLangNameList {
+            // Get URL given supported language name
             if let supportedLangURL = Bundle.main.url(forResource: supportedLangName, withExtension: "lproj") {
-                
+                // Get bundle given supported language URL, which is needed to retrieve .strings file
                 if let supportedLangBundle = Bundle(url: supportedLangURL) {
-                    
-                    
+                    // Loop through all enum keys
                     for localeKey in F8LocaleStrings.allCases {
-                        let isContainedAsterisk = localeKey.rawValue.localized(bundle: supportedLangBundle).contains("*")
-                        XCTAssertFalse(isContainedAsterisk, "Could not find localized string for key #\(localeKey.rawValue)# under language #\(supportedLangURL.lastPathComponent.replacingOccurrences(of: ".lproj", with: ""))#")
+                        let isLocalized = !localeKey.rawValue.localized(bundle: supportedLangBundle).contains("*")
+                        XCTAssertTrue(isLocalized, "Could not find localized string for key #\(localeKey.rawValue)# under language #\(supportedLangURL.lastPathComponent.replacingOccurrences(of: ".lproj", with: ""))#")
                     }
                 } else {
-                    XCTFail("Could not convert URL to bundle for language \(supportedLangName)!")
+                    XCTFail("Could not convert URL to bundle for language #\(supportedLangName)#!")
                 }
             } else {
-                XCTFail("Could not find URL for language \(supportedLangName)!")
+                XCTFail("Could not find URL for language #\(supportedLangName)#!")
                 
             }
         }
