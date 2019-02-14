@@ -116,8 +116,29 @@ class MainViewController: UIViewController {
 // Collection View Delegates
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let count = fetchedRC.fetchedObjects?.count ?? 0
-        return count
+        fetchedRC.object
+        // Jing's Way
+        guard let fetchedSection = fetchedRC.sections?[section] else {
+            print("Early return, empty section, return 0 row!")
+            return 0
+        }
+        
+        let numOfObjects = fetchedSection.numberOfObjects
+        
+        return numOfObjects
+        
+        //        // Demo way
+        //        guard let sections = fetchedRC.sections, let objs = sections[section].objects else { return 0 }
+        //
+        //        return objs.count
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        guard let numOfSections = fetchedRC.sections?.count else {
+            print("Early return, empty fetched result, return 1 section!")
+            return 0
+        }
+        return numOfSections
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -154,6 +175,23 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             performSegue(withIdentifier: "petSegue", sender: indexPath)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderRow", for: indexPath)
+        
+        var indicationEyeColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        
+        if let friends = fetchedRC.sections?[indexPath.section].objects as? [Friend], let eyeColor = friends.first?.eyecolor as? UIColor{
+            indicationEyeColor = eyeColor
+        }
+
+        if let headerView = view as? HeaderCell {
+            headerView.eyeColorIndicator.tintColor = indicationEyeColor
+        }
+
+        return view
+    }
+    
 }
 
 // Search Bar Delegate
@@ -222,10 +260,13 @@ extension MainViewController:UISearchBarDelegate {
         //        let sortDescriptorList = [NSSortDescriptor(key: #keyPath(Friend.name), ascending: false)]
         //                let sortDescriptorList = [NSSortDescriptor(key: #keyPath(Friend.dob), ascending: true)]
         //        let sortDescriptorList = [NSSortDescriptor(key: #keyPath(Friend.name), ascending: true, comparator: )]
-        let sortDescriptorList = [NSSortDescriptor(key: #keyPath(Friend.name), ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))]
-        fetchRequest.sortDescriptors = sortDescriptorList
+        let sortName = NSSortDescriptor(key: #keyPath(Friend.name), ascending: true, selector: #selector(NSString.caseInsensitiveCompare(_:)))
+        let sortEyeColor = NSSortDescriptor(key: #keyPath(Friend.eyecolor),  ascending: true)
         
-        fetchedRC = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: fetchContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        fetchRequest.sortDescriptors = [sortEyeColor, sortName]
+        
+        fetchedRC = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: fetchContext, sectionNameKeyPath: #keyPath(Friend.eyecolor), cacheName: nil)
         
         
         do {

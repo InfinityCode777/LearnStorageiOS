@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jvW-sG-dVG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jvW-sG-dVG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,16 +30,16 @@
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SIm-ta-r2b">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
-                                <color key="backgroundColor" red="0.0" green="0.40784313729999999" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.40784313729999999" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="t6b-CH-oUp">
                                     <size key="itemSize" width="155" height="255"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="375" height="36"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="20" minY="15" maxX="20" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="15" maxX="20" maxY="15"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FriendCell" id="kby-g8-AAG" customClass="FriendCell" customModule="PetPal" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="15" width="155" height="255"/>
+                                        <rect key="frame" x="20" y="51" width="155" height="255"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="155" height="255"/>
@@ -109,6 +109,28 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="HeaderRow" id="DJL-fQ-zpL" customClass="HeaderCell" customModule="PetPal" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Eye" translatesAutoresizingMaskIntoConstraints="NO" id="gpM-Bl-wyi">
+                                            <rect key="frame" x="8" y="2" width="32" height="32"/>
+                                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="gpM-Bl-wyi" secondAttribute="height" multiplier="1:1" id="9Cz-b6-Jd5"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="gpM-Bl-wyi" firstAttribute="leading" secondItem="DJL-fQ-zpL" secondAttribute="leading" constant="8" id="AmP-jA-mOQ"/>
+                                        <constraint firstItem="gpM-Bl-wyi" firstAttribute="centerY" secondItem="DJL-fQ-zpL" secondAttribute="centerY" id="a0J-Oo-1t6"/>
+                                        <constraint firstItem="gpM-Bl-wyi" firstAttribute="height" secondItem="DJL-fQ-zpL" secondAttribute="height" multiplier="32/36" id="lnF-wC-eTv"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="eyeColorIndicator" destination="gpM-Bl-wyi" id="L4K-St-gGZ"/>
+                                    </connections>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="QhV-H5-8Pu" id="W5B-IU-8QU"/>
                                     <outlet property="delegate" destination="QhV-H5-8Pu" id="Era-HP-gmA"/>
@@ -278,7 +300,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="person-placeholder" width="300" height="275"/>
+        <image name="Eye" width="32" height="32"/>
+        <image name="person-placeholder" width="72" height="66"/>
         <image name="pet-placeholder" width="150" height="150"/>
     </resources>
 </document>
