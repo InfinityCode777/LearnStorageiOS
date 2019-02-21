@@ -32,7 +32,7 @@ import UIKit
 import CoreData
 
 class MainViewController: UIViewController {
-    @IBOutlet private weak var collectionView:UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     
     private let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -42,24 +42,24 @@ class MainViewController: UIViewController {
     
     private var fetchedRC = NSFetchedResultsController<Friend>()
     private var isFiltered = false
-    private var friendPets = [String:[String]]()
+    private var friendPets = [Pet]()
     private var selected:IndexPath!
     private var picker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
+//        loadData(with: nil)
+//        collectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         loadData(with: nil)
+        collectionView.reloadData()
+//        collectionView.reloadInputViews()
         showEditButton()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     // MARK:- Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -67,14 +67,19 @@ class MainViewController: UIViewController {
             if let index = sender as? IndexPath {
                 let pvc = segue.destination as! PetsViewController
                 let friend = fetchedRC.object(at: index)
-                if let name = friend.name {
-                    if let pets = friendPets[name] {
-                        pvc.pets = pets
-                    }
-                    pvc.petAdded = {
-                        self.friendPets[name] = pvc.pets
-                    }
-                }
+                
+//                if !friend.name.isEmpty {
+//                    if let pets = friend.pets as? [Pet] {
+//                        pvc.pets = pets
+//
+//                    }
+//                    pvc.petAdded = {
+//                        self.friendPets[friend.name] = pvc.pets
+//                    }
+                
+//                }
+                pvc.friend = friend
+
             }
         }
     }
@@ -146,8 +151,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let friend = fetchedRC.object(at: indexPath)
         var profilePhoto: UIImage? = UIImage(named: "person-placeholder")
         
-        if let name = friend.name {
-            cell.nameLabel.text = name
+        if !friend.name.isEmpty {
+            cell.nameLabel.text = friend.name
             if let photoData = friend.photo as Data? {
                 profilePhoto = UIImage(data: photoData)
             }
@@ -179,16 +184,22 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderRow", for: indexPath)
         
-        var indicationEyeColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        
+        var indicationEyeColor: UIColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
+
+        var colorString = ""
+
         if let friends = fetchedRC.sections?[indexPath.section].objects as? [Friend], let eyeColor = friends.first?.eyecolor as? UIColor{
             indicationEyeColor = eyeColor
+            colorString = String(describing: friends.first?.eyeColor)
+            print("EyeColor >> \(colorString)")
         }
-
+//
         if let headerView = view as? HeaderCell {
             headerView.eyeColorIndicator.tintColor = indicationEyeColor
+            print("Expected indicator color to \(colorString)")
+            print("Expected indicator color to \(headerView.eyeColorIndicator.tintColor)")
         }
-
+        
         return view
     }
     
@@ -231,13 +242,9 @@ extension MainViewController:UISearchBarDelegate {
         // Search bar resigns its first responder status
         searchBar.resignFirstResponder()
         
-        // Clear flag to indicate that current results are un-filtered results
-        isFiltered = false
+//        // Clear flag to indicate that current results are un-filtered results
+//        isFiltered = false
         
-        // Load un-filtered results with nil query content
-        //        if let friends = loadData(with: nil) {
-        //            self.friends = friends
-        //        }
         loadData(with: nil)
         
         // Clear search bar content
