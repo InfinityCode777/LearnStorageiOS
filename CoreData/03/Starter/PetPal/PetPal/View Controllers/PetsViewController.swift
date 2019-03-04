@@ -52,7 +52,7 @@ class PetsViewController: UIViewController {
     private var DOBFormatter = DateFormatter()
     
     private  var deleteGestureRecognizer = UILongPressGestureRecognizer()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +60,8 @@ class PetsViewController: UIViewController {
         picker.delegate = self
         
         deleteGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressDeleteHandler(_:)))
-//        deleteGestureRecognizer.delegate = self
-//        deleteGestureRecognizer.delaysTouchesBegan = true
+        //        deleteGestureRecognizer.delegate = self
+        //        deleteGestureRecognizer.delaysTouchesBegan = true
         collectionView.addGestureRecognizer(deleteGestureRecognizer)
     }
     
@@ -82,9 +82,9 @@ class PetsViewController: UIViewController {
         //        petEntry.picture = petData.picture as NSData?
         // Save entity
         appDelegate?.saveContext()
-//        // Refresh UI
-//        loadData(with: nil)
-//        collectionView.reloadData()
+        //        // Refresh UI
+        //        loadData(with: nil)
+        //        collectionView.reloadData()
     }
 }
 
@@ -202,15 +202,15 @@ extension PetsViewController:UISearchBarDelegate {
         context?.delete(petToDelete)
         // Save changes
         appDelegate?.saveContext()
-//        // Load data again
-//        loadData(with: nil)
-//        // Refresh UI
-//        collectionView.reloadData()
+        //        // Load data again
+        //        loadData(with: nil)
+        //        // Refresh UI
+        //        collectionView.reloadData()
     }
     
     
-//    @IBAction func onLongPressDeleteTriggered(_ sender: UILongPressGestureRecognizer) {
-
+    //    @IBAction func onLongPressDeleteTriggered(_ sender: UILongPressGestureRecognizer) {
+    
     @objc private func longPressDeleteHandler(_ sender: UILongPressGestureRecognizer) {
         if sender.state != .ended {
             return
@@ -229,10 +229,10 @@ extension PetsViewController:UISearchBarDelegate {
         context?.delete(petToDelete)
         // Save changes
         appDelegate?.saveContext()
-//        // Load data again
-//        loadData(with: nil)
-//        // Refresh UI
-//        collectionView.reloadData()
+        //        // Load data again
+        //        loadData(with: nil)
+        //        // Refresh UI
+        //        collectionView.reloadData()
     }
     
 }
@@ -269,9 +269,8 @@ extension PetsViewController: NSFetchedResultsControllerDelegate {
             print("Function for 'moved' and 'updated' are not supported yet!")
         }
         
-        
     }
-
+    
 }
 
 // Helper function inserted by Swift 4.2 migrator.
