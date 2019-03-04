@@ -51,10 +51,18 @@ class PetsViewController: UIViewController {
     
     private var DOBFormatter = DateFormatter()
     
+    private  var deleteGestureRecognizer = UILongPressGestureRecognizer()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         DOBFormatter.dateFormat = "d MMM yyyy"
         picker.delegate = self
+        
+        deleteGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressDeleteHandler(_:)))
+//        deleteGestureRecognizer.delegate = self
+//        deleteGestureRecognizer.delaysTouchesBegan = true
+        collectionView.addGestureRecognizer(deleteGestureRecognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -199,6 +207,33 @@ extension PetsViewController:UISearchBarDelegate {
         collectionView.reloadData()
     }
     
+    
+//    @IBAction func onLongPressDeleteTriggered(_ sender: UILongPressGestureRecognizer) {
+
+    @objc private func longPressDeleteHandler(_ sender: UILongPressGestureRecognizer) {
+        if sender.state != .ended {
+            return
+        }
+        
+        // Get point where touch begins
+        let touchPoint = sender.location(in: collectionView)
+        // Get the index path of triggering cell
+        guard let indexPath = collectionView.indexPathForItem(at: touchPoint) else {
+            print("Early return, no cell is found at touch point!")
+            return
+        }
+        // Get object with given index path
+        let petToDelete = fetchedRC.object(at: indexPath)
+        // Delete object from context
+        context?.delete(petToDelete)
+        // Save changes
+        appDelegate?.saveContext()
+        // Load data again
+        loadData(with: nil)
+        // Refresh UI
+        collectionView.reloadData()
+    }
+    
 }
 
 // Image Picker Delegates
@@ -216,6 +251,10 @@ extension PetsViewController: UIImagePickerControllerDelegate, UINavigationContr
         picker.dismiss(animated: true, completion: nil)
     }
 }
+
+//extension PetsViewController: UIGestureRecognizerDelegate {
+//    
+//}
 
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {

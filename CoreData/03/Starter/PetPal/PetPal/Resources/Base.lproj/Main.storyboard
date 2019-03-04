@@ -115,7 +115,7 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Eye" translatesAutoresizingMaskIntoConstraints="NO" id="gpM-Bl-wyi">
                                             <rect key="frame" x="8" y="2" width="32" height="32"/>
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" red="0.93761962649999997" green="0.78910404440000004" blue="0.41951596740000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="gpM-Bl-wyi" secondAttribute="height" multiplier="1:1" id="9Cz-b6-Jd5"/>
                                             </constraints>
@@ -268,6 +268,7 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="41J-4s-sMA" firstAttribute="trailing" secondItem="kty-LL-rt6" secondAttribute="trailing" id="CDb-hv-nKd"/>
                             <constraint firstItem="gEe-JH-eUB" firstAttribute="bottom" secondItem="kty-LL-rt6" secondAttribute="bottom" id="EgQ-15-hNr"/>
