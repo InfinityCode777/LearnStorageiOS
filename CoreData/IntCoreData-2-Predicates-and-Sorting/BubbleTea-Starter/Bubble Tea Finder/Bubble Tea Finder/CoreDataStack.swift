@@ -23,11 +23,11 @@
 import Foundation
 import CoreData
 
-class CoreDataStack {
+public class CoreDataStack {
 
   private let modelName: String
 
-  init(modelName: String) {
+  public init(modelName: String) {
     self.modelName = modelName
   }
 

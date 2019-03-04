@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   lazy var  coreDataStack = CoreDataStack(modelName: "Bubble_Tea_Finder")
 
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
     guard let navController = window?.rootViewController as? UINavigationController,
       let viewController = navController.topViewController as? ViewController else {
@@ -66,8 +66,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func importJSONSeedData() {
     let jsonURL = Bundle.main.url(forResource: "seed", withExtension: "json")!
-    let jsonData = NSData(contentsOf: jsonURL) as! Data
-
+    
+    var jsonData = Data()
+    
+    do {
+    let data = try NSData(contentsOf: jsonURL) as Data
+      jsonData = data
+    } catch {
+      print("Fetch error >> \(error)")
+    }
+    
+    
     let venueEntity = NSEntityDescription.entity(forEntityName: "Venue", in: coreDataStack.managedContext)!
     let locationEntity = NSEntityDescription.entity(forEntityName: "Location", in: coreDataStack.managedContext)!
     let categoryEntity = NSEntityDescription.entity(forEntityName: "Category", in: coreDataStack.managedContext)!

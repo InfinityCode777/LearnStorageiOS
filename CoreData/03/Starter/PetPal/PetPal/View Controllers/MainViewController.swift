@@ -42,7 +42,6 @@ class MainViewController: UIViewController {
     
     private var fetchedRC = NSFetchedResultsController<Friend>()
     private var isFiltered = false
-    private var friendPets = [Pet]()
     private var selected:IndexPath!
     private var picker = UIImagePickerController()
     
