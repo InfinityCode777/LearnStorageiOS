@@ -82,9 +82,9 @@ class PetsViewController: UIViewController {
         //        petEntry.picture = petData.picture as NSData?
         // Save entity
         appDelegate?.saveContext()
-        // Refresh UI
-        loadData(with: nil)
-        collectionView.reloadData()
+//        // Refresh UI
+//        loadData(with: nil)
+//        collectionView.reloadData()
     }
 }
 
@@ -182,6 +182,7 @@ extension PetsViewController:UISearchBarDelegate {
         
         fetchedRC = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: fetchContext, sectionNameKeyPath: nil, cacheName: nil)
         
+        fetchedRC.delegate = self
         
         do {
             try fetchedRC.performFetch()
@@ -201,10 +202,10 @@ extension PetsViewController:UISearchBarDelegate {
         context?.delete(petToDelete)
         // Save changes
         appDelegate?.saveContext()
-        // Load data again
-        loadData(with: nil)
-        // Refresh UI
-        collectionView.reloadData()
+//        // Load data again
+//        loadData(with: nil)
+//        // Refresh UI
+//        collectionView.reloadData()
     }
     
     
@@ -228,10 +229,10 @@ extension PetsViewController:UISearchBarDelegate {
         context?.delete(petToDelete)
         // Save changes
         appDelegate?.saveContext()
-        // Load data again
-        loadData(with: nil)
-        // Refresh UI
-        collectionView.reloadData()
+//        // Load data again
+//        loadData(with: nil)
+//        // Refresh UI
+//        collectionView.reloadData()
     }
     
 }
@@ -252,9 +253,26 @@ extension PetsViewController: UIImagePickerControllerDelegate, UINavigationContr
     }
 }
 
-//extension PetsViewController: UIGestureRecognizerDelegate {
-//    
-//}
+extension PetsViewController: NSFetchedResultsControllerDelegate {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        guard let activeIndexPath = indexPath ?? (newIndexPath ?? nil) else {
+            return
+        }
+        
+        switch type {
+        case .insert:
+            collectionView.insertItems(at: [activeIndexPath])
+        case .delete:
+            collectionView.deleteItems(at: [activeIndexPath])
+        default:
+            print("Function for 'moved' and 'updated' are not supported yet!")
+        }
+        
+        
+    }
+
+}
 
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
