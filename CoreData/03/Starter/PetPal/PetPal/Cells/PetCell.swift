@@ -36,4 +36,13 @@ class PetCell: UICollectionViewCell {
 	@IBOutlet weak var animalLabel: UILabel!
 	@IBOutlet weak var dobLabel: UILabel!
 	@IBOutlet weak var pictureImageView: UIImageView!
+    
+    //    public var cellLongPressedAction: ((_ sender: PetCell) -> Void)? = nil
+    
+    // Handle delete action
+    public var deleteBtnTappedAction: ((_ sender: PetCell) -> Void)? = nil
+    @IBAction func onDeleteBtnTapped(_ sender: Any) {
+        deleteBtnTappedAction?(self)
+    }
+    
 }

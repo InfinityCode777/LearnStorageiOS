@@ -49,14 +49,11 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
-//        loadData(with: nil)
-//        collectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         loadData(with: nil)
         collectionView.reloadData()
-//        collectionView.reloadInputViews()
         showEditButton()
     }
     
@@ -67,17 +64,6 @@ class MainViewController: UIViewController {
             if let index = sender as? IndexPath {
                 let pvc = segue.destination as! PetsViewController
                 let friend = fetchedRC.object(at: index)
-                
-//                if !friend.name.isEmpty {
-//                    if let pets = friend.pets as? [Pet] {
-//                        pvc.pets = pets
-//
-//                    }
-//                    pvc.petAdded = {
-//                        self.friendPets[friend.name] = pvc.pets
-//                    }
-                
-//                }
                 pvc.friend = friend
 
             }
@@ -86,9 +72,6 @@ class MainViewController: UIViewController {
     
     // MARK:- Actions
     @IBAction func addFriend() {
-        
-        
-        
         
         let friendData = FriendData()
         let friendEntry = Friend(entity: Friend.entity(), insertInto: context)
@@ -230,8 +213,6 @@ extension MainViewController:UISearchBarDelegate {
         //            return
         //        }
         loadData(with: queryText)
-        
-        //        self.friends = friends
         
         // Refresh collection view
         collectionView.reloadData()
