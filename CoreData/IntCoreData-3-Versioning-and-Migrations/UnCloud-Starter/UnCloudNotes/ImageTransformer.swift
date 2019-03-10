@@ -42,6 +42,6 @@ class ImageTransformer: ValueTransformer {
   override func transformedValue(_ value: Any?) -> Any? {
     guard let image = value as? UIImage else { return nil }
 
-    return UIImagePNGRepresentation(image)
+    return image.pngData()
   }
 }

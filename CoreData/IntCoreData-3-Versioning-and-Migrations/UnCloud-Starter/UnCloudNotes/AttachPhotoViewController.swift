@@ -30,7 +30,7 @@ class AttachPhotoViewController: UIViewController {
     let picker = UIImagePickerController()
     picker.sourceType = .photoLibrary
     picker.delegate = self
-    self.addChildViewController(picker)
+    self.addChild(picker)
     return picker
   }()
 
@@ -38,7 +38,7 @@ class AttachPhotoViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    addChildViewController(imagePicker)
+    addChild(imagePicker)
     view.addSubview(imagePicker.view)
   }
 
@@ -51,10 +51,13 @@ class AttachPhotoViewController: UIViewController {
 
 // MARK: - UIImagePickerControllerDelegate
 extension AttachPhotoViewController: UIImagePickerControllerDelegate {
-  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
     guard let note = note else { return }
 
-    note.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+    note.image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage
 
     _ = navigationController?.popViewController(animated: true)
   }
@@ -74,3 +77,13 @@ extension AttachPhotoViewController: NoteDisplayable {
 
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
+}
