@@ -23,7 +23,7 @@
 import UIKit
 
 class AttachPhotoViewController: UIViewController {
-
+  
   // MARK: - Properties
   var note : Note?
   lazy var imagePicker : UIImagePickerController = {
@@ -33,18 +33,21 @@ class AttachPhotoViewController: UIViewController {
     self.addChild(picker)
     return picker
   }()
-
+  
+  private lazy var stack: CoreDataStack = CoreDataStack(modelName:"UnCloudNotesDataModel")
+  
+  
   // MARK: - View Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     addChild(imagePicker)
     view.addSubview(imagePicker.view)
   }
-
+  
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
-
+    
     imagePicker.view.frame = view.bounds
   }
 }
@@ -52,13 +55,39 @@ class AttachPhotoViewController: UIViewController {
 // MARK: - UIImagePickerControllerDelegate
 extension AttachPhotoViewController: UIImagePickerControllerDelegate {
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-// Local variable inserted by Swift 4.2 migrator.
-let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+    
+    // Local variable inserted by Swift 4.2 migrator.
+    let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+    let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage
+    
+//    // Original
+//    guard let note = note else { return }
+//    note.image = image
+    
+    //    // Jing's way, does not work
+    //    guard let note = note else { return }
+    //    guard let noteContext = note.managedObjectContext else { return }
+    //
+    //
+    //    let attachment = Attachment(context: noteContext)
+    //    attachment.dateCreated = note.dateCreated
+    //    attachment.image = image
+    //    attachment.note = note
+    //
+    
+    //    let attachment =  Attachment(entity: Attachment.entity(), insertInto: stack.managedContext)
+    //    let attachment = Attachment(context: stack.managedContext)
+    
+    
+        //Tutorial
+        guard let note = note,
+          let context = note.managedObjectContext else { return }
 
-    guard let note = note else { return }
-
-    note.image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage
-
+        let attachment = Attachment(context: context)
+        attachment.dateCreated = Date()
+        attachment.image = image
+        attachment.note = note
+    
     _ = navigationController?.popViewController(animated: true)
   }
 }
@@ -80,10 +109,10 @@ extension AttachPhotoViewController: NoteDisplayable {
 
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+  return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
 }
 
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
-	return input.rawValue
+  return input.rawValue
 }

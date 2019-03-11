@@ -60,6 +60,12 @@ extension AttachPhotoViewController: UIImagePickerControllerDelegate {
     attachment.image = info[UIImagePickerControllerOriginalImage] as? UIImage
     attachment.note = note
     
+//    guard let note = note else { return }
+//    let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+
+    //    let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage
+//    note.image = image
+    
     _ = navigationController?.popViewController(animated: true)
   }
 }

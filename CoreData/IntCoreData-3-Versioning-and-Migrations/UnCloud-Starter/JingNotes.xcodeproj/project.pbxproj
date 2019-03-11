@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		22AFD4B61B5527B9002CE770 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22AFD4B41B5527B9002CE770 /* LaunchScreen.storyboard */; };
 		279570D719827BC400F52BA9 /* ImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279570D619827BC400F52BA9 /* ImageTransformer.swift */; };
+		2D7218ED2234CA8A00AA7E57 /* MappingModelV2ToV3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2D7218EC2234CA8A00AA7E57 /* MappingModelV2ToV3.xcmappingmodel */; };
 		790FC6E4198439AD00B52A53 /* AttachPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790FC6E3198439AD00B52A53 /* AttachPhotoViewController.swift */; };
 		95863A171D6DE01200247AE2 /* NoteImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95863A161D6DE01200247AE2 /* NoteImageTableViewCell.swift */; };
 		AE81437F1E2616FB00B5CF5E /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE81437E1E2616FB00B5CF5E /* Attachment.swift */; };
@@ -28,6 +29,8 @@
 /* Begin PBXFileReference section */
 		22AFD4B51B5527B9002CE770 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		279570D619827BC400F52BA9 /* ImageTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTransformer.swift; sourceTree = "<group>"; };
+		2D7218EB2234C7E200AA7E57 /* UnCloudNotesDataModel v3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UnCloudNotesDataModel v3.xcdatamodel"; sourceTree = "<group>"; };
+		2D7218EC2234CA8A00AA7E57 /* MappingModelV2ToV3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModelV2ToV3.xcmappingmodel; sourceTree = "<group>"; };
 		790FC6E3198439AD00B52A53 /* AttachPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachPhotoViewController.swift; sourceTree = "<group>"; };
 		95863A161D6DE01200247AE2 /* NoteImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteImageTableViewCell.swift; sourceTree = "<group>"; };
 		AE81437E1E2616FB00B5CF5E /* Attachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
@@ -35,7 +38,7 @@
 		C71A68731948D2CB003A62E7 /* CreateNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CreateNoteViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C73DC121195148B500DFADAB /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CoreDataStack.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C75D48831950CF7900648D63 /* NotesListViewController+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "NotesListViewController+Additions.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		C77E1E771947D6D700762492 /* UnCloudNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnCloudNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C77E1E771947D6D700762492 /* JingNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JingNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C77E1E7B1947D6D700762492 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C77E1E7C1947D6D700762492 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C77E1E7E1947D6D700762492 /* NotesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = NotesListViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -62,7 +65,7 @@
 		C77E1E6E1947D6D700762492 = {
 			isa = PBXGroup;
 			children = (
-				C77E1E791947D6D700762492 /* UnCloudNotes */,
+				C77E1E791947D6D700762492 /* JingNotes */,
 				C77E1E781947D6D700762492 /* Products */,
 			);
 			indentWidth = 2;
@@ -72,12 +75,12 @@
 		C77E1E781947D6D700762492 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C77E1E771947D6D700762492 /* UnCloudNotes.app */,
+				C77E1E771947D6D700762492 /* JingNotes.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C77E1E791947D6D700762492 /* UnCloudNotes */ = {
+		C77E1E791947D6D700762492 /* JingNotes */ = {
 			isa = PBXGroup;
 			children = (
 				C7D603331D353F1F0080A77D /* UnCloudNotes.entitlements */,
@@ -97,9 +100,10 @@
 				C77E1E801947D6D700762492 /* Main.storyboard */,
 				C77E1E7A1947D6D700762492 /* Supporting Files */,
 				C7F78B92194E1FA900BAF550 /* UnCloudNotesDataModel.xcdatamodeld */,
+				2D7218EC2234CA8A00AA7E57 /* MappingModelV2ToV3.xcmappingmodel */,
 				22AFD4B41B5527B9002CE770 /* LaunchScreen.storyboard */,
 			);
-			path = UnCloudNotes;
+			path = JingNotes;
 			sourceTree = "<group>";
 		};
 		C77E1E7A1947D6D700762492 /* Supporting Files */ = {
@@ -113,9 +117,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C77E1E761947D6D700762492 /* UnCloudNotes */ = {
+		C77E1E761947D6D700762492 /* JingNotes */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C77E1E931947D6D700762492 /* Build configuration list for PBXNativeTarget "UnCloudNotes" */;
+			buildConfigurationList = C77E1E931947D6D700762492 /* Build configuration list for PBXNativeTarget "JingNotes" */;
 			buildPhases = (
 				C77E1E731947D6D700762492 /* Sources */,
 				C77E1E741947D6D700762492 /* Frameworks */,
@@ -125,9 +129,9 @@
 			);
 			dependencies = (
 			);
-			name = UnCloudNotes;
+			name = JingNotes;
 			productName = UnCloudNotes;
-			productReference = C77E1E771947D6D700762492 /* UnCloudNotes.app */;
+			productReference = C77E1E771947D6D700762492 /* JingNotes.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -138,7 +142,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Ray Wenderlich";
 				TargetAttributes = {
 					C77E1E761947D6D700762492 = {
@@ -153,7 +157,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C77E1E721947D6D700762492 /* Build configuration list for PBXProject "UnCloudNotes" */;
+			buildConfigurationList = C77E1E721947D6D700762492 /* Build configuration list for PBXProject "JingNotes" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -166,7 +170,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C77E1E761947D6D700762492 /* UnCloudNotes */,
+				C77E1E761947D6D700762492 /* JingNotes */,
 			);
 		};
 /* End PBXProject section */
@@ -197,6 +201,7 @@
 				AE81437F1E2616FB00B5CF5E /* Attachment.swift in Sources */,
 				279570D719827BC400F52BA9 /* ImageTransformer.swift in Sources */,
 				790FC6E4198439AD00B52A53 /* AttachPhotoViewController.swift in Sources */,
+				2D7218ED2234CA8A00AA7E57 /* MappingModelV2ToV3.xcmappingmodel in Sources */,
 				C7BBD86D194FFCDF00BDDB95 /* Note.swift in Sources */,
 				C71A68741948D2CB003A62E7 /* CreateNoteViewController.swift in Sources */,
 				C7F78B91194E1F1300BAF550 /* NoteTableViewCell.swift in Sources */,
@@ -235,14 +240,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -265,6 +278,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -281,14 +295,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -304,6 +326,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -318,14 +341,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = RKGM2W93YG;
-				INFOPLIST_FILE = UnCloudNotes/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/JingNotes/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.cdbt.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jing.JingNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -335,20 +360,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = RKGM2W93YG;
-				INFOPLIST_FILE = UnCloudNotes/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/JingNotes/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.cdbt.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jing.JingNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C77E1E721947D6D700762492 /* Build configuration list for PBXProject "UnCloudNotes" */ = {
+		C77E1E721947D6D700762492 /* Build configuration list for PBXProject "JingNotes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C77E1E911947D6D700762492 /* Debug */,
@@ -357,7 +384,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C77E1E931947D6D700762492 /* Build configuration list for PBXNativeTarget "UnCloudNotes" */ = {
+		C77E1E931947D6D700762492 /* Build configuration list for PBXNativeTarget "JingNotes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C77E1E941947D6D700762492 /* Debug */,
@@ -372,10 +399,11 @@
 		C7F78B92194E1FA900BAF550 /* UnCloudNotesDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				2D7218EB2234C7E200AA7E57 /* UnCloudNotesDataModel v3.xcdatamodel */,
 				C70DC6561D929DFE001A8AA6 /* UnCloudNotesDataModel v2.xcdatamodel */,
 				C7F78B93194E1FA900BAF550 /* UnCloudNotesDataModel.xcdatamodel */,
 			);
-			currentVersion = C70DC6561D929DFE001A8AA6 /* UnCloudNotesDataModel v2.xcdatamodel */;
+			currentVersion = 2D7218EB2234C7E200AA7E57 /* UnCloudNotesDataModel v3.xcdatamodel */;
 			path = UnCloudNotesDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

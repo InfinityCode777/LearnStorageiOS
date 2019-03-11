@@ -147,6 +147,7 @@
 				TargetAttributes = {
 					C77E1E761947D6D700762492 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = RKGM2W93YG;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.iCloud = {
@@ -321,7 +322,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = RKGM2W93YG;
 				INFOPLIST_FILE = UnCloudNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.cdbt.${PRODUCT_NAME:rfc1034identifier}";
@@ -337,7 +338,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = RKGM2W93YG;
 				INFOPLIST_FILE = UnCloudNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.raywenderlich.cdbt.${PRODUCT_NAME:rfc1034identifier}";

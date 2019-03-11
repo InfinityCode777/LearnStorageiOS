@@ -24,6 +24,32 @@ import Foundation
 import CoreData
 import UIKit
 
+////class Note: NSManagedObject {
+////  @NSManaged var title: String
+////  @NSManaged var body: String
+////  @NSManaged var dateCreated: Date!
+////  @NSManaged var displayIndex: NSNumber!
+////  @NSManaged var attachments: Set<Attachment>?
+////
+////  override func awakeFromInsert() {
+////    super.awakeFromInsert()
+////    dateCreated = Date()
+////  }
+////
+////  public var latestAttachment: Attachment? {
+////    guard let attachments = attachments else { return nil }
+////    let sortedAttachments = attachments.sorted(by: {$0.dateCreated < $1.dateCreated})
+////    return sortedAttachments.first ?? nil
+////  }
+////
+////  public var image: UIImage? {
+////    return latestAttachment?.image
+////  }
+////}
+//
+
+
+// Tutorial
 class Note: NSManagedObject {
   @NSManaged var title: String
   @NSManaged var body: String
@@ -52,6 +78,8 @@ class Note: NSManagedObject {
   }
 }
 
+
+//// Original
 //class Note: NSManagedObject {
 //  @NSManaged var title: String
 //  @NSManaged var body: String
